@@ -3,6 +3,7 @@ import numpy as np
 import glm
 import math
 
+#window settings
 WIN_RES = glm.vec2(900,480)
 
 #colors
