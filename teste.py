@@ -28,4 +28,4 @@ while gui.running:
     paint(i * 0.03)
     gui.set_image(pixels)
     gui.show()
-    i += 1
+    i += 2
