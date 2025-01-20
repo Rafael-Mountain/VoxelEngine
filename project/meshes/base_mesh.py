@@ -5,7 +5,7 @@ class BaseMesh:
         #OpenGL context
         self.ctx = None
         #shader program
-        self.shader_program = None
+        self.program = None
         #vertex buffer data type format: "3f 3f"
         self.vbo_format = None
         # atribute names according to the format: ("in_position", "in_color")
@@ -13,13 +13,13 @@ class BaseMesh:
         #vertex array object
         self.vao = None
 
-    def get_vertex_data(self) -> np.array:
-        pass
+    def get_vertex_data(self) -> np.array: ...
+
     def get_vao(self):
         vertex_data = self.get_vertex_data()
         vbo = self.ctx.buffer(vertex_data)
         vao = self.ctx.vertex_array(
-            self.program, [(vbo, self.vbo_format), *self.attrs], skip_errors=True
+            self.program, [(vbo, self.vbo_format, *self.attrs)], skip_errors=True
         )
         return vao
     
