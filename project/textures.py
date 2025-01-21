@@ -7,14 +7,14 @@ class Textures:
         self.ctx = app.ctx
         
         #load texture
-        self.texture_0 = self.load('frame.png')
+        self.texture_0 = self.load('frame_branco.png')
 
         #assign texture unit
-        self.texture_0.use(0)
+        self.texture_0.use(location = 0)
 
     def load(self, file_name):
         texture = pg.image.load(f'assets/{file_name}')
-        texture = pg.transform.flip(texture, flip_x= True, filp_y= False)
+        texture = pg.transform.flip(texture, flip_x= True, flip_y= False)
 
         texture = self.ctx.texture(
             size=texture.get_size(),
@@ -23,5 +23,5 @@ class Textures:
         )
         texture.anisotropy = 32.0
         texture.build_mipmaps()
-        texture.filter = (mgl.LINEAR_MIPMAP_LINEAR, mgl.LINEAR)
+        texture.filter = (mgl.NEAREST, mgl.NEAREST)
         return texture
