@@ -1,1 +1,3 @@
 venv
+__pycache__/
+project/meshes/__pycache__/base_mesh.cpython-312.pyc
